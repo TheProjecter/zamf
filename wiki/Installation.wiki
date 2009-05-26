@@ -2,7 +2,7 @@
 
 == Step 1 ==
 
-Download the latest release of Zamf using the link provided on the project home page or alternatively check-out the latest source using a subversion client such as Tortoise SVN.
+Download the latest release of _Zamf_ using the link provided on the project home page or alternatively check-out the latest source using a subversion client such as Tortoise SVN.
 
 == Step 2 ==
 
