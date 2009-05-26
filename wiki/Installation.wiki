@@ -1,4 +1,4 @@
-#summary Below is a quick guide on setting up _Zamf_ for use with CakePHP.
+#summary Below is a quick guide on setting up Zamf for use with CakePHP.
 
 == Step 1 ==
 
