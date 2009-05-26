@@ -1,13 +1,36 @@
-#summary One-sentence summary of this page.
+#summary Below is a quick guide on setting up Zamf for use with CakePHP.
 
-= Introduction =
+== Download ==
 
-Add your content here.
+First, you will need to download a copy of Zamf or alternatively check-out the latest source using a subversion client such as Tortoise SVN.
 
+== Setup ==
 
-= Details =
+Once the files are downloaded, place the *zend* folder and all of its contents into the */cake/app/plugins/* directory.
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+== Configuration ==
+
+Before using the Zamf plugin you must first make a few necessary changes:
+
+  * */cake/app/webroot/index.php*
+  Locate the line which says: _$Dispatcher = new Dispatcher();_
+ Directly above it add: _App::import('Vendor', 'Zend.AmfDispatcher');_
+{{{
+if (isset($_GET['url']) && $_GET['url'] === 'favicon.ico') {
+    return;
+} else {
+    App::import('Vendor', 'Zend.AmfDispatcher');
+    $Dispatcher = new Dispatcher();
+    $Dispatcher->dispatch($url);
+}
+}}}
+ * */cake/app/app_controller.php*
+ Now add the component to your _AppController_.
+{{{
+<?php
+class AppController extends Controller
+{
+    public $components = array('Zend.Amf');
+}
+?>
+}}}
