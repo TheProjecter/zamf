@@ -1,20 +1,50 @@
-#summary Below is a quick guide on setting up Zamf for use with CakePHP.
+#summary Below is a quick guide on setting up _Zamf_ for use with CakePHP.
 
-== Download ==
+== Step 1 ==
 
-First, you will need to download a copy of Zamf or alternatively check-out the latest source using a subversion client such as Tortoise SVN.
+Download the latest release of Zamf using the link provided on the project home page or alternatively check-out the latest source using a subversion client such as Tortoise SVN.
 
-== Setup ==
+== Step 2 ==
 
-Once the files are downloaded, place the *zend* folder and all of its contents into the */cake/app/plugins/* directory.
+Download the latest release of [http://www.cakephp.org CakePHP] from their website. Be sure to support the project by making a donation!
 
-== Configuration ==
+== Step 3 ==
 
-Before using the Zamf plugin you must first make a few necessary changes:
+Download the latest release of [http://framework.zend.com/download/latest Zend] from their website.
 
-  * */cake/app/webroot/index.php*
-  Locate the line which says: _$Dispatcher = new Dispatcher();_
- Directly above it add: _App::import('Vendor', 'Zend.AmfDispatcher');_
+== Step 4 ==
+
+If you are working locally using [http://www.wampserver.com WAMP] or [http://www.mamp.info MAMP] you should place the [http://www.cakephp.org CakePHP] Framework in your _www_ installation folder, or a location you think is suitable. Otherwise just upload the files to your server.
+
+*Example:* _C:\wamp\www\cake\_
+
+== Step 5 ==
+
+Extract the [http://framework.zend.com/download/latest Zend] Framework and place the entire _Zend_ folder in your projects _vendors_ directory.
+
+*Example:* _C:\wamp\www\cake\app\vendors\_
+
+If for some reason you don't want to include the entire Framework you can simply add the folders and files listed below. However I cannot guarantee this will always work with future versions of [http://framework.zend.com/download/latest Zend].
+
+  * _C:\wamp\www\cake\app\vendors\Zend\Amf\..._
+  * _C:\wamp\www\cake\app\vendors\Zend\Loader\..._
+  * _C:\wamp\www\cake\app\vendors\Zend\Server\..._
+  * _C:\wamp\www\cake\app\vendors\Zend\Loader.php_
+
+== Step 6 ==
+
+Open and edit the file: _C:\wamp\www\cake\app\webroot\index.php_
+
+*Original*
+{{{
+if (isset($_GET['url']) && $_GET['url'] === 'favicon.ico') {
+    return;
+} else {
+    $Dispatcher = new Dispatcher();
+    $Dispatcher->dispatch($url);
+}
+}}}
+*Edited*
 {{{
 if (isset($_GET['url']) && $_GET['url'] === 'favicon.ico') {
     return;
@@ -24,8 +54,11 @@ if (isset($_GET['url']) && $_GET['url'] === 'favicon.ico') {
     $Dispatcher->dispatch($url);
 }
 }}}
- * */cake/app/app_controller.php*
- Now add the component to your _AppController_.
+
+== Step 7 ==
+
+Open and edit the file: _C:\wamp\www\cake\app\app_controller.php_ making sure the _Zamf_ plugin is added to the list of components being utilized.
+
 {{{
 <?php
 class AppController extends Controller
@@ -34,3 +67,7 @@ class AppController extends Controller
 }
 ?>
 }}}
+
+== Step 8 ==
+
+Point your gateway to: http://localhost/cake/
