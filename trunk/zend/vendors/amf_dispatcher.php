@@ -20,24 +20,9 @@
  ************************************************************************************************************/
 
 /**
- * Ensure that the current folder is in the include path, for
- * Zends's internal require_once calls.
+ * Loads the required Zend files from the vendors folder.
  */
-$currentIncludePath = ini_get('include_path');
-$currentIncludes = explode(PATH_SEPARATOR, $currentIncludePath);
-$vendorPath = dirname(__FILE__);
-
-if (!in_array($vendorPath, $currentIncludes) && function_exists('ini_set'))
-{
-	$currentIncludes[] = $vendorPath;
-	ini_set('include_path', implode(PATH_SEPARATOR, $currentIncludes));
-}
-
-/**
- * Zend's auto loader should handle the rest.
- */
-require_once 'Zend/Loader/Autoloader.php';
-Zend_Loader_Autoloader::getInstance();
+require_once 'zend_loader.php';
 
 class AmfDispatcher extends Object
 {
