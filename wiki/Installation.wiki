@@ -2,7 +2,7 @@
 
 == Step 1 ==
 
-Download the latest release of _Zamf_ using the link provided on the project home page or alternatively check-out the latest source using a subversion client such as Tortoise SVN.
+Download the latest release of Zamf using the link provided on the project home page or alternatively check-out the latest source using a subversion client such as Tortoise SVN.
 
 == Step 2 ==
 
@@ -57,7 +57,7 @@ if (isset($_GET['url']) && $_GET['url'] === 'favicon.ico') {
 
 == Step 7 ==
 
-Open and edit the file: _C:\wamp\www\cake\app\app_controller.php_ making sure the _Zamf_ plugin is added to the list of components being utilized.
+Open and edit the file: _C:\wamp\www\cake\app\app_controller.php_ making sure the Zamf plugin is added to the list of components being utilized.
 
 {{{
 <?php
