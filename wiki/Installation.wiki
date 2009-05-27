@@ -31,13 +31,13 @@ If for some reason you don't want to include the entire Framework you can simply
   * _C:\wamp\www\cake\app\vendors\Zend\Server\..._
   * _C:\wamp\www\cake\app\vendors\Zend\Loader.php_
 
-=== Step 7 ===
+=== Step 6 ===
 
 With Zamf downloaded and extracted, place the _zend_ folder and all of its contents into your projects _plugins_ directory.
 
 *Example:* _C:\wamp\www\cake\app\plugins\zend\_
 
-=== Step 8 ===
+=== Step 7 ===
 
 Open and edit the file: _C:\wamp\www\cake\app\webroot\index.php_
 
@@ -61,7 +61,7 @@ if (isset($_GET['url']) && $_GET['url'] === 'favicon.ico') {
 }
 }}}
 
-=== Step 9 ===
+=== Step 8 ===
 
 Open and edit the file: _C:\wamp\www\cake\app\app_controller.php_ making sure the Zamf plugin is added to the list of components being utilized.
 
@@ -74,6 +74,6 @@ class AppController extends Controller
 ?>
 }}}
 
-=== Step 10 ===
+=== Step 9 ===
 
 Point your gateway to: http://localhost/cake/
