@@ -21,12 +21,6 @@
 class AmfView extends View
 {
 	/**
-	 * Storage for the AMF encoding used.
-	 * @var int
-	 */
-	public $encoding = 3;
-	
-	/**
 	 * Storage for the controller data.
 	 * @var array
 	 */
@@ -42,11 +36,6 @@ class AmfView extends View
 		if (is_object($controller))
 		{
 			$this->viewVars = $controller->viewVars;
-			
-			if (!empty($controller->Amf))
-			{
-				$this->encoding = $controller->Amf->encoding;
-			}
 		}
 	}
 	
@@ -66,13 +55,11 @@ class AmfView extends View
 			$this->viewVars['ValidationErrors'] = $this->validationErrors;
 		}
 		
+		$dispatcher = AmfDispatcher::getInstance();
+		$encoding = $dispatcher->request->getObjectEncoding();
 		$messageBody = new Zend_Amf_Value_MessageBody('/1/onResult', null, $this->viewVars);
-		$outputStream = new Zend_Amf_Parse_OutputStream();
-		$serializer = new Zend_Amf_Parse_Amf3_Serializer($outputStream);
-		$serializer->writeObject($this->viewVars);
-		
 		$response = new Zend_Amf_Response_Http();
-		$response->setObjectEncoding($this->encoding);
+		$response->setObjectEncoding($encoding);
 		$response->addAmfBody($messageBody);
 		$response->finalize();
 		
