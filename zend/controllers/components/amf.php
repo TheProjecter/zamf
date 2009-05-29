@@ -33,12 +33,6 @@ class AmfComponent extends Object
 	public $components = array('Session');
 	
 	/**
-	 * The default AMF encoding is set to 3.
-	 * @var int
-	 */
-	public $encoding = 3;
-	
-	/**
 	 * Called before the Controller::beforeFilter(). We simply check if
 	 * the request contains AMF data and pass that data to the controller.
 	 * Other wise we just dismiss everything and let Cake do its thing.
