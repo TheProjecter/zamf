@@ -129,6 +129,15 @@ class AmfComponent extends Object
 			{
 				$controller->viewVars['Message'] = $flash['message'];
 			}
+			
+			if (empty($this->status))
+			{
+				$controller->viewVars['Status'] = $this->action;
+			}
+			else
+			{
+				$controller->viewVars['Status'] = $this->status;
+			}
 		}
 	}
 }
