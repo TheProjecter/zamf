@@ -43,11 +43,6 @@ class AmfView extends View
 		{
 			$this->viewVars = $controller->viewVars;
 			
-			if (!empty($controller->validationErrors))
-			{
-				$this->viewVars['ValidationErrors'] = $controller->validationErrors;
-			}
-			
 			if (!empty($controller->Amf))
 			{
 				$this->encoding = $controller->Amf->encoding;
@@ -66,6 +61,11 @@ class AmfView extends View
 	 */
 	public function render($action = null, $layout = null, $file = null)
 	{
+		if (!empty($this->validationErrors))
+		{
+			$this->viewVars['ValidationErrors'] = $this->validationErrors;
+		}
+		
 		$messageBody = new Zend_Amf_Value_MessageBody('/1/onResult', null, $this->viewVars);
 		$outputStream = new Zend_Amf_Parse_OutputStream();
 		$serializer = new Zend_Amf_Parse_Amf3_Serializer($outputStream);
