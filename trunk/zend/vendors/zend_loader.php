@@ -27,9 +27,13 @@
  * the minimum folders/files required for the plugin to work.
  * 
  * /cake/app/vendors/Zend/Amf/...
+ * /cake/app/vendors/Zend/Date/...
  * /cake/app/vendors/Zend/Loader/...
  * /cake/app/vendors/Zend/Server/...
+ * /cake/app/vendors/Zend/Date.php
+ * /cake/app/vendors/Zend/Exception.php
  * /cake/app/vendors/Zend/Loader.php
+ * /cake/app/vendors/Zend/Version.php
  */
 $vendorPath = APP.'vendors';
 $currentIncludePath = ini_get('include_path');
